@@ -9,9 +9,12 @@
 <body>
     @include('partials.navbar')
 
-    <main>
+    <main class="bg-black text-white">
         @yield('content')
     </main>
 
+    @include('partials.footer')
+
+    <script src="{{ asset('bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

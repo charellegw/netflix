@@ -24,12 +24,12 @@ class MovieSeeder extends Seeder
         for($i = 0; $i<10; $i++) {
             $movie = Movie::create(
                 [
-                    'title' => $faker->title(),
-                    'description' => $faker->paragraph(3),
+                    'title' => ucfirst($faker->words(3, true)),
+                    'description' => $faker->realText(100),
                     'release_year' => $faker->year(),
                     'duration' => $faker->time('H:i:s', '03:00:00'),
                     'rating' => $faker->randomFloat(1, 1, 5),
-                    'poster_url' => $faker->imageUrl(540, 800, 'movie'),
+                    'poster_url' => 'https://picsum.photos/id/' . $faker->numberBetween(100, 200) . '/200/300',
                     'genre_id' => $genres->random()->id,
                 ],
             );

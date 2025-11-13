@@ -14,15 +14,18 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::all();
+
+        return view('pages.home', compact('movies'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function show_paginate()
     {
-        //
+        $movies = Movie::with('genre')->latest('release_year')->paginate(5);
+        return view('pages.movies', compact('movies'));
     }
 
     /**
